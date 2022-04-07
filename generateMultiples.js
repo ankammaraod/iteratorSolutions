@@ -1,7 +1,11 @@
 //generateMultiples(5,10) => [5,10,....,50]
 
 const generateArray = function (count) {
-  return ' '.repeat(count).split('');
+  const array = [];
+  for (let index = 1; index <= count; index++) {
+    array.push(index);
+  }
+  return array;
 };
 
 const multiplyWithFive = function (x) {
