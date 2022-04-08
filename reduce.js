@@ -18,7 +18,7 @@ const min = function (x, y) {
 
 const add = function (x, y) {
   return y + x;
-}
+};
 
 const numbers = [1, 2, 3, 4, 5, -10];
 const string = ['h', 'e', 'l', 'l', 'o'];

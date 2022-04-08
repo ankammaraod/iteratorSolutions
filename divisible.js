@@ -1,10 +1,10 @@
-const divisibleBy = function (divisor) {
+const divide = function (divisor) {
   return function (x) {
     return x / divisor;
   }
 };
 const divisibleWith = function (array, divisor) {
-  const divisibleWithTwo = divisibleBy(divisor);
+  const divisibleWithTwo = divide(divisor);
   return array.map(divisibleWithTwo);
 };
 

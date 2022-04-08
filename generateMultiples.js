@@ -8,20 +8,33 @@ const generateArray = function (count) {
   return array;
 };
 
-const multiplyWithFive = function (x) {
-  return x * 5;
-}
-
 const multiplyWith = function (x) {
-  return function (num, index) {
-    return (index + 1) * x;
+  return function (num) {
+    return (num) * x;
   }
-}
+};
+
+// const generateRow = function (multiplier, multiples) {
+// const table = [];
+// for (let index = 1; index <= multiples.length; index++)
+// table.push(multiplier + "*" + index + "=" + multiples[index - 1]);
+// return table;
+// };
+
+const generateRow = function (multiplier) {
+  return function (multiple, index) {
+    return multiplier + "*" + (index + 1) + "=" + multiple;
+  }
+};
 
 const generateMultiple = function (multiplier, count) {
+  const array = generateArray(count);
+
   const multiplyWithFive = multiplyWith(multiplier);
-  const multiples = generateArray(count);
-  return multiples.map(multiplyWithFive);
+  const multiples = array.map(multiplyWithFive);
+
+  const generateTable = generateRow(multiplier);
+  return multiples.map(generateTable);
 };
 
 console.log(generateMultiple(5, 10));
