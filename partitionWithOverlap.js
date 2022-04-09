@@ -1,16 +1,16 @@
 const addToChunks = function (partitions, element, count, overlap) {
   const lastElement = partitions[partitions.length - 1];
 
-  if (lastElement.length !== count) {
+  if (lastElement.length === count && overlap > 0) {
+    const overlappingElements = lastElement.slice(-overlap);
+    partitions.push(overlappingElements);
     partitions[partitions.length - 1].push(element);
-    if (lastElement.length === count && overlap > 0) {
-      const overlappingElements = lastElement.slice(-overlap);
-      partitions.push(overlappingElements);
-    }
     return partitions;
   }
-  partitions.push([element]);
+  partitions[partitions.length - 1].push(element);
+
   return partitions;
+
 };
 
 
