@@ -2,24 +2,24 @@ const isEven = function (x) {
   return x % 2 === 0;
 };
 
-const addToChunks = function (partitions, element, predicate) {
-  const lastElement = partitions[partitions.length - 1];
-  const areEqual = predicate(lastElement[0]) === predicate(element);
+const addToChunks = function (partitions, element, criteria) {
+  const lastChunk = partitions[partitions.length - 1];
+  const areEqual = criteria(lastChunk[0]) === criteria(element);
   if (areEqual) {
-    lastElement.push(element);
+    lastChunk.push(element);
     return partitions;
   }
   partitions.push([element]);
   return partitions;
 };
 
-const partitionBy = function (numbers, predicate) {
+const partitionBy = function (numbers, criteria) {
   if (numbers.length === 0) {
     return [];
   }
   return numbers.reduce(
     function (partitions, element) {
-      return addToChunks(partitions, element, predicate)
+      return addToChunks(partitions, element, criteria)
     }, [[]]);
 };
 
