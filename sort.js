@@ -1,10 +1,10 @@
 const sort = function (elements) {
-  for (let inner = 0; inner < elements.length; inner++) {
-    for (let outer = inner; outer < elements.length; outer++) {
-      if (elements[outer] < elements[inner]) {
-        const smallest = elements[outer];
-        elements[outer] = elements[inner];
-        elements[inner] = smallest;
+  for (let outer = 0; outer < elements.length; outer++) {
+    for (let inner = outer; inner < elements.length; inner++) {
+      if (elements[inner] < elements[outer]) {
+        const smallest = elements[inner];
+        elements[inner] = elements[outer];
+        elements[outer] = smallest;
       }
     }
   }
