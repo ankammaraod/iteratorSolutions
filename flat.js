@@ -4,9 +4,7 @@ const flat = function (elements) {
   let flattedElements = [];
   for (let index = 0; index < elements.length; index++) {
     const element = elements[index];
-
-    const elementToBePushed = isArray(element) ? element : [element];
-    flattedElements = flattedElements.concat(elementToBePushed);
+    flattedElements = flattedElements.concat(element);
   }
   return flattedElements;
 };
